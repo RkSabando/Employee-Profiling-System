@@ -1,0 +1,17 @@
+.title{
+    font-size:22px;
+}
+.login-input{
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.login-input:focus{
+    outline: none;
+}
+.wrapper{
+    padding-left: 20px ;
+    padding-right: 20px ;
+}
+.icons{
+    transform: translateY(-40px);
+}

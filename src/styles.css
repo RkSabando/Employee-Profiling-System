@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.w-100-per{
+    width:100% !important;
+}
+.h-100-per{
+    height:100% !important;
+}
+.w-100-vw{
+    width:100vw !important;
+}
+.h-100-vh{
+    height:100vh !important;
+}
+.c-pointer{
+    cursor: pointer;
+}

@@ -1,0 +1,31 @@
+<div class="w-100-vw h-100-vh d-flex align-items-center">
+    <div class="row justify-content-center w-100-vw">
+        <div class="p-5 bg-white shadow-lg rounded wrapper">
+            <div class="row justify-content-center">
+                <img class="ml-20" src="../../assets/images/logo/sbj.jpg" alt="" width="100">
+            </div>
+            <div class="row justify-content-center mt-2 title font-weight-bold">
+                <div class="col">
+                    Employee Profiling System
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <input class="w-100-per login-input text-center pt-3 pb-3" type="text" name="text" id="" placeholder="USERNAME">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <input class="w-100-per login-input pt-3 text-center pb-3" type="{{ passType }}" name="pass" id="" placeholder="PASSWORD">
+                </div>
+            </div>
+
+            <span class="float-right icons c-pointer" (click)="togglePass()">
+                <fa-icon [icon]="faEye" *ngIf="showPass" style="margin-right:1px"></fa-icon>
+                <fa-icon [icon]="faEyeSlash" *ngIf="!showPass"></fa-icon>
+            </span>
+        </div>
+    </div>
+
+</div>
