@@ -1,25 +1,26 @@
-<div class="w-100-vw h-100-vh d-flex align-items-center">
+<div class="w-100-vw h-100-vh d-flex align-items-center" style="background-color: #f8f8f8;">
     <div class="row justify-content-center w-100-vw">
-        <div class="p-5 bg-white shadow-lg rounded wrapper">
+        <div class="p-5 bg-white shadow-lg rounded wrapper" style="padding-top: 20px !important;">
             <div class="row justify-content-center">
-                <img class="ml-20" src="../../assets/images/logo/sbj.jpg" alt="" width="100">
+                <img class="" src="../../assets/images/logo/sbj.jpg" alt="" width="180">
             </div>
             <div class="row justify-content-center mt-2 title font-weight-bold">
                 <div class="col">
                     Employee Profiling System
                 </div>
             </div>
-
-            <div class="row mt-5">
-                <div class="col-12">
-                    <input class="w-100-per login-input text-center pt-3 pb-3" type="text" name="text" id="" placeholder="USERNAME">
+            <form [formGroup]="userLoginForm">
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <input (keydown.enter)="signInUser()" formControlName="email" class="w-100-per login-input text-center pt-3 pb-1" type="text" name="text" id="" placeholder="USERNAME">
+                    </div>
                 </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-12">
-                    <input class="w-100-per login-input pt-3 text-center pb-3" type="{{ passType }}" name="pass" id="" placeholder="PASSWORD">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <input (keydown.enter)="signInUser()" formControlName="password" class="w-100-per login-input pt-3 text-center pb-1" type="{{ passType }}" name="pass" id="" placeholder="PASSWORD">
+                    </div>
                 </div>
-            </div>
+            </form>
 
             <span class="float-right icons c-pointer" (click)="togglePass()">
                 <fa-icon [icon]="faEye" *ngIf="showPass" style="margin-right:1px"></fa-icon>
@@ -29,3 +30,5 @@
     </div>
 
 </div>
+<div class="first-triangle"></div>
+<div class="second-triangle"></div>
