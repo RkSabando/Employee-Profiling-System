@@ -20,16 +20,87 @@ position:fixed;
 z-index: 20;
 width:0;height:0;
 top:0;right:0;
-border: 200px solid red;
+border: 32vw solid red;
 box-shadow: 0px 0px 5px black;
-transform: rotate(45deg) translate(0px, -283px);
+transform: rotate(45deg) translate(0vw, -46vw);
 }
 .second-triangle{
 position:fixed;
 z-index: 15;
 width:0;height:0;
 top:0;right:0;
-border: 400px solid yellow;
+border: 54vw solid yellow;
 box-shadow: 0px 0px 5px black;
-transform: rotate(45deg) translate(-10px, -690px);
+transform: rotate(45deg) translate(0vw, -89vw);
+}
+.third-triangle{
+    position: fixed;
+    z-index: 13;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    border: 37vw solid red;
+    box-shadow: 0px 0px 5px black;
+    transform: rotate(45deg) translate(-58vw, 0vw);
+}
+.fourth-triangle{
+    position: fixed;
+    z-index: 12;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    border: 54vw solid yellow;
+    box-shadow: 0px 0px 5px black;
+    transform: rotate(45deg) translate(0vw, 81vw);
+}
+.label-bottom{
+    position: absolute;
+    bottom: 5vh;
+    right: 20vw;
+}
+.text{
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+hr{
+    height: 10px;
+    background: red;
+    border:0 !important;
+}
+
+.margin-side{
+    margin-left: 90px!important;
+    margin-right: 90px!important;
+}
+.margin-side-input{
+    margin-left: 40px!important;
+    margin-right: 40px!important;
+}
+.logo-title{
+    background-color: red;
+    color: white;
+    text-shadow: 0px 0px 9px black;
+}
+.col.w-100-per.logo-title.text-center.p-3:before {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 100%;
+    right: 0px;
+    border-top: 15px solid #8F1114;
+    border-right: 15px solid transparent;
+}
+.col.w-100-per.logo-title.text-center.p-3:after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 100%;
+    left: 0px;
+    border-top: 15px solid #8F1114;
+    border-left: 15px solid transparent;
 }

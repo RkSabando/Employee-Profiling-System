@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 .w-100-per{
     width:100% !important;
 }
@@ -16,3 +18,36 @@
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.toast-top-center {
+    top: 12px;
+  }
+.p-12{
+    padding:12px;
+}
+.bbox{
+    box-sizing: border-box;
+}
+.d-flex{
+    display:flex;
+}
+.h-center{
+    justify-content: center;
+}
+.v-center{
+    align-items: center;
+}
+.v-bottom{
+    vertical-align: bottom;
+}
+.liu{
+    font-family: 'Liu Jian Mao Cao', cursive;
+}
+.mont{
+    font-family: 'Montserrat', sans-serif;
+}
+.muli{
+    font-family: 'Muli', sans-serif;
+}
+.libre{
+    font-family: 'Libre Baskerville', serif;
+}

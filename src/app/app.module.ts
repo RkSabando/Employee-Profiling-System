@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { FontAwesomeModule,FaIconLibrary } from '@fortawesome/angular-fontawesome';
+// import { DashboardComponent } from './dashboard/dashboard.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -16,6 +16,7 @@ import { AuthService } from './services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ToastrModule } from 'ngx-toastr';
+import { NgxLoadingModule } from 'ngx-loading';
 
 const config = {
     apiKey: "AIzaSyDcZ518X59VoYmJRcspes4B18ByNswUeXs",
@@ -27,13 +28,23 @@ const config = {
     appId: "1:261552848852:web:2bc3b74e088a94d51be041",
     measurementId: "G-D69KNZTMF1"
 };
+import { 
+  faEye, faEyeSlash, faBars, faHome, faUserCog, faUsers,
+  faSignOutAlt
+  } from '@fortawesome/free-solid-svg-icons';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EmployeesComponent } from './components/employees/employees.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    // DashboardComponent,
+    TemplateComponent,
     DashboardComponent,
-    TemplateComponent
+    EmployeesComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +53,7 @@ const config = {
     ReactiveFormsModule,
     MaterialModule,
     ToastrModule.forRoot(),
+    NgxLoadingModule.forRoot({}),
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
@@ -52,6 +64,15 @@ const config = {
   ],
   bootstrap: [AppComponent]
 })
+
+
+
 export class AppModule { 
+  constructor(private library: FaIconLibrary) {
+    library.addIcons(
+      faEye,faEyeSlash,faBars,faHome,
+      faUserCog,faUsers,faSignOutAlt
+      );
+  }
 
 }

@@ -1,1 +1,50 @@
-<p>template works!</p>
+<div class="content-container">
+    <div class="left-div" [ngClass]="{collapsed: !expandSideNav}">
+        <div class="w-100-per d-flex h-center v-center bbox p-2" style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+          <img class="" src="../../assets/images/logo/sbj.jpg" alt="" width="30">
+          <span *ngIf="showSideNavText" class="ml-3 muli admin">Administrator</span>
+        </div>
+
+        <div class="mt-3 p-3 w-100-per">
+            <ul class="ul-sidenav mont">
+                <li>
+                    <a [routerLink]="['/dashboard']" routerLinkActive="active" style="padding-left: 14px;">
+                        <fa-icon [icon]="['fas', 'home']" style="margin-right:5px" size="lg"></fa-icon>
+                        <span *ngIf="showSideNavText">Dashboard</span> 
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/employees']" routerLinkActive="active" style="padding-left: 12px;">
+                        <fa-icon [icon]="['fas', 'users']" style="margin-right:5px" size="lg"></fa-icon>
+                        <span *ngIf="showSideNavText">Employees</span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/settings']" routerLinkActive="active" >
+                        <fa-icon [icon]="['fas', 'user-cog']" style="margin-right:5px" size="lg"></fa-icon>
+                        <span *ngIf="showSideNavText">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['']" (click)="logout()" >
+                        <fa-icon [icon]="['fas', 'sign-out-alt']" style="margin-right:5px" size="lg"></fa-icon>
+                        <span *ngIf="showSideNavText">Sign Out</span>
+                    </a>
+                </li>
+            </ul> 
+        </div>
+    </div>
+
+    <div class="right-div bbox" [ngClass]="{expanded: !expandSideNav}">
+    
+     <div class="header-red w-100-per pl-3 v-center d-flex bbox">
+        <fa-icon class="c-pointer" (click)="toggleSideNav()" [icon]="['fas', 'bars']" size="lg" [styles]="{'stroke': 'red', 'color': 'white'}"></fa-icon>
+    </div> 
+    
+      <div class="content w-100-per">
+            <router-outlet></router-outlet>
+        </div> 
+    </div> 
+</div>
+
+

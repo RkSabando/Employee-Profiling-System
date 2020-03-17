@@ -1,34 +1,57 @@
 <div class="w-100-vw h-100-vh d-flex align-items-center" style="background-color: #f8f8f8;">
     <div class="row justify-content-center w-100-vw">
-        <div class="p-5 bg-white shadow-lg rounded wrapper" style="padding-top: 20px !important;">
-            <div class="row justify-content-center">
+        <div class=" p-0 bg-white shadow-lg rounded wrapper" style="padding-top: 20px !important;">
+            <div class="row justify-content-center margin-side" >
                 <img class="" src="../../assets/images/logo/sbj.jpg" alt="" width="180">
             </div>
-            <div class="row justify-content-center mt-2 title font-weight-bold">
-                <div class="col">
+            <div class="row justify-content-center  title font-weight-bold" style="margin-top: 15px!important;">
+                <div class="col w-100-per logo-title text-center p-3">
                     Employee Profiling System
                 </div>
             </div>
             <form [formGroup]="userLoginForm">
-                <div class="row mt-5">
+                <div class="row mt-5 margin-side-input">
                     <div class="col-12">
-                        <input (keydown.enter)="signInUser()" formControlName="email" class="w-100-per login-input text-center pt-3 pb-1" type="text" name="text" id="" placeholder="USERNAME">
+                        <input autocomplete="off" (keydown.enter)="signInUser()" formControlName="email" class="w-100-per login-input text-center pt-3 pb-1" type="text" name="text" id="" placeholder="USERNAME">
                     </div>
                 </div>
-                <div class="row mt-3">
+                <div class="row mt-3 mb-5 margin-side-input">
                     <div class="col-12">
-                        <input (keydown.enter)="signInUser()" formControlName="password" class="w-100-per login-input pt-3 text-center pb-1" type="{{ passType }}" name="pass" id="" placeholder="PASSWORD">
+                        <input autocomplete="off" (keydown.enter)="signInUser()" formControlName="password" class="w-100-per login-input pt-3 text-center pb-1" type="{{ passType }}" name="pass" id="" placeholder="PASSWORD">
+                        <span class="float-right icons c-pointer" (click)="togglePass()">
+                            <fa-icon [icon]="['fas', 'eye']" *ngIf="showPass" style="margin-right:1px"></fa-icon>
+                            <fa-icon [icon]="['fas', 'eye-slash']" *ngIf="!showPass"></fa-icon>
+                        </span>
                     </div>
                 </div>
             </form>
 
-            <span class="float-right icons c-pointer" (click)="togglePass()">
-                <fa-icon [icon]="faEye" *ngIf="showPass" style="margin-right:1px"></fa-icon>
-                <fa-icon [icon]="faEyeSlash" *ngIf="!showPass"></fa-icon>
-            </span>
         </div>
     </div>
 
 </div>
 <div class="first-triangle"></div>
 <div class="second-triangle"></div>
+<div class="third-triangle"></div>
+<div class="fourth-triangle"></div>
+
+<div class="label-bottom">
+    <div class="row">
+        <div class="col-12 text-center text">
+            ENGINEERING
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <hr size="10px">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center text">
+            CONSTRUCTION
+        </div>
+    </div>
+</div>
+
+<ngx-loading [show]="loading" [config]="{animationType: ngxLoadingAnimationTypes.wanderingCubes, primaryColour: primaryColour, secondaryColour: secondaryColour, backdropBorderRadius: '3px'}"
+      [template]="loadingTemplate"></ngx-loading>

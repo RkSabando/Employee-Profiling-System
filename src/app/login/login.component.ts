@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormGroup, FormControl, Validators , FormBuilder} from '@angular/forms'
-
-
-import { 
-    faEye, 
-    faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { ToasterService } from '../services/toaster.service';
 import { AuthService } from '../services/auth.service';
 import { AuthGuard } from '../guard/auth.guard';
 import { Router } from '@angular/router';
+import { ngxLoadingAnimationTypes } from 'ngx-loading';
+
+import { 
+    faEye, 
+    faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,15 +20,19 @@ export class LoginComponent implements OnInit {
   faEyeSlash = faEyeSlash;
   showPass=false;
   passType="password"
+  customLoadingTemplate: TemplateRef<any>;
   public userLoginForm: FormGroup;
-  
-  
+  public loading = false;
+  public primaryColour = '#ff0000';
+  public secondaryColour = '#ffff00';
+  public ngxLoadingAnimationTypes = ngxLoadingAnimationTypes;
+  public loadingTemplate: TemplateRef<any>
   constructor(
     private auth: AuthService,
     private formbuilder: FormBuilder,
     private toast: ToasterService,
     private authGuard: AuthGuard,
-    private router: Router
+    private router: Router,
     ) { 
       
     }
@@ -49,11 +53,16 @@ export class LoginComponent implements OnInit {
             this.userLoginForm.controls.email.value,
             this.userLoginForm.controls.password.value
           ).then(() => {
-            this.authGuard.isLoggedIn = true;
-            this.router.navigate(['']);
+            this.loading = true;
+            let that = this;
+            setTimeout(() => {
+              that.authGuard.isLoggedIn = true;
+              that.router.navigate(['']);
+              that.loading = false;
+            }, 3000);
 
           }).catch(err => {
-            console.log(err);
+            this.toast.showWarning('Email or password is incorrect!');
           })
          }
          else{
